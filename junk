@@ -6,3 +6,15 @@ sc.textFile("//")
     val logFile = "C:/Apache/Practice/test.txt" // Should be some file on your system
     val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
     val logData = spark.read.textFile(logFile)
+    
+Prior to Spark 2.0.0 sparkContext was used as a channel to access all spark functionality.
+The spark driver program uses spark context to connect to the cluster through a resource manager (YARN orMesos..).
+sparkConf is required to create the spark context object, which stores configuration parameter like appName (to identify your spark driver), application, number of core and memory size of executor running on worker node.
+
+In order to use APIs of SQL, HIVE, and Streaming, separate contexts need to be created.  
+    
+SPARK 2.0.0 onwards, SparkSession provides a single point of entry to interact with underlying Spark functionality and
+allows programming Spark with DataFrame and Dataset APIs. All the functionality available with sparkContext are also available in sparkSession.
+
+In order to use APIs of SQL, HIVE, and Streaming, no need to create separate contexts as sparkSession includes all the APIs.
+
