@@ -18,3 +18,9 @@ allows programming Spark with DataFrame and Dataset APIs. All the functionality 
 
 In order to use APIs of SQL, HIVE, and Streaming, no need to create separate contexts as sparkSession includes all the APIs.
 
+
+Error on running
+: ./bin/run-example SparkPi 10
+
+2018-09-25 15:14:07 ERROR Shell:397 - Failed to locate the winutils binary in the hadoop binary path
+
